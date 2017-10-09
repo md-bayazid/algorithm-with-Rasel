@@ -6,9 +6,9 @@ int stack_first[1000],top,n;
 
 bool Add_stack(int item)
 {
-    if(top>=n-1)
+    if(top >= n)
     {
-        cout<<"\nStack is full";
+        cout<<"Stack is full"<<endl;
         return false;
     }
     else
@@ -24,14 +24,14 @@ bool Delete_stack()
     int item;
     if(top<=0)
     {
-        printf("\nStack is empty");
+        printf("Stack is empty\n");
         return false;
     }
     else
     {
         top = top -1;
         item = stack_first[top];
-        cout<<"\n"<<item;
+        cout<<"Pop = "<<item<<endl;
         return true;
     }
 }
@@ -41,16 +41,18 @@ bool Delete_stack()
 int main()
 {
     int i,value,choice;
-    cout<<"Enter size of stack:";
+    cout<<"Enter size of stack: ";
     cin>>n;
+    
     while(1)
     {
-        cout<<"Enter choice";
+        cout<<"Enter choice: ";
         cin>> choice;
         if(choice== 0)
             break;
         if(choice==1)
         {
+            cout<<"Enter value : ";
             cin>>value;
             Add_stack(value);
         }
@@ -58,7 +60,6 @@ int main()
         {
             Delete_stack();
         }
-
     }
     return 0;
 }
